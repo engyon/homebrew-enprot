@@ -1,0 +1,26 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  FORMULA: ./Formula/enprot.rb
+
+jobs:
+  tests:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the formula
+      run: brew install --build-bottle ${FORMULA}
+    - name: Test the formula
+      run: brew test ${FORMULA}
+    - name: Audit the formula
+      run: brew audit --strict ${FORMULA}
+    - name: Build the bottle
+      run: |
+        brew bottle --json --force-core-tap ${FORMULA}
+

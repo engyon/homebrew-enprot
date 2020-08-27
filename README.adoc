@@ -1,0 +1,102 @@
+= Homebrew for enprot
+
+This tap contains formulae relating to https://github.com/engyon/enprot[enprot].
+
+== Quick Install
+
+Run this and it's all done.
+
+[source,sh]
+----
+brew tap engyon/enprot
+brew install --HEAD enprot
+----
+
+Or:
+
+[source,sh]
+----
+brew install --HEAD engyon/enprot/enprot
+----
+
+== Install Tap
+
+[source,sh]
+----
+brew tap engyon/enprot
+----
+
+== Install enprot
+
+To install HEAD version, you can use the `--HEAD` option:
+
+[source,sh]
+----
+brew install --HEAD enprot
+----
+
+If the formula conflicts with one from `Homebrew/homebrew` or another
+tap, you can run:
+
+[source,sh]
+----
+brew install --HEAD engyon/enprot/enprot
+----
+
+You can also install via URL:
+
+[source,sh]
+----
+brew install --HEAD https://raw.githubusercontent.com/engyon/homebrew-enprot/master/enprot.rb
+----
+
+== enprot requires botan
+
+The `enprot` formula must be used with `botan` HEAD. See the
+Troubleshooting section if you run into `botan` problems.
+
+[source,sh]
+----
+brew unlink botan
+brew install --HEAD botan
+----
+
+== Acceptable Formulae
+
+You can read Homebrew's Acceptable Formulae document
+https://github.com/Homebrew/brew/blob/master/docs/Acceptable-Formulae.md[here].
+
+== Troubleshooting
+
+First, please run `brew update` and `brew doctor`.
+
+Second, read the
+https://github.com/Homebrew/brew/blob/master/docs/Troubleshooting.md#troubleshooting[Troubleshooting
+Checklist].
+
+=== Botan
+
+If you got '`Botan build is missing a required feature`' during
+the configure then you need to install botan using the `--HEAD` option:
+
+[source,sh]
+----
+brew unlink botan
+brew install --HEAD botan
+----
+
+*If you don't read these it will take us far longer to help you with
+your problem.*
+
+== More Documentation
+
+`brew help`, `man brew` or check
+https://github.com/Homebrew/brew/tree/master/docs#readme[our
+documentation].
+
+== License
+
+Code is under the
+https://github.com/Homebrew/brew/tree/master/LICENSE.txt[BSD 2 Clause
+license].
+
